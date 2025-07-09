@@ -199,43 +199,38 @@
             margin: 0.5rem 0;
         }
         
-        /* Skills Section */
-        .skill-category {
-            margin-bottom: 2rem;
-        }
-        
-        .skill-category h3 {
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-        
-        .skill-bar {
-            height: 20px;
-            background: #e9ecef;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            border-radius: 10px;
-            background: linear-gradient(90deg, var(--primary), var(--success));
-            position: relative;
-            width: 0;
-            transition: width 1.5s ease-in-out;
-        }
-        
-        .skill-name {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 0.8rem;
+        .certification-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
             font-weight: 600;
-            text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .certification-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .skill-item {
+            background: var(--light);
+            padding: 0.8rem;
+            border-radius: 5px;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
         }
         
         /* Projects Section */
@@ -372,88 +367,115 @@
             .interests-grid {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <img src="https://via.placeholder.com/150" alt="Randy Munang" class="profile-pic floating">
+            <!-- Replace with your actual image URL -->
+            <img src="https://avatars.githubusercontent.com/u/12345678?v=4" alt="Randy Munang" class="profile-pic floating">
             <h1>Randy Munang</h1>
-            <p>DevOps Engineer | Cloud Specialist | Automation Expert</p>
+            <p>DevOps Engineer | SRE | Platform Engineer</p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/randy-m-2b00a8255/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/buma2510?tab=repositories" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:randy.bm45@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
         </header>
 
         <section id="about">
             <h2>About Me</h2>
-            <p>Hello! I'm Randy, a passionate DevOps engineer with expertise in building scalable, secure cloud infrastructure and automating deployment pipelines. I specialize in creating CI/CD workflows that enhance developer productivity while maintaining security and compliance standards.</p>
-            <p>With a background in both development and operations, I bridge the gap between these worlds to deliver robust, high-performance systems. My approach combines technical excellence with a focus on business outcomes.</p>
+            <p>Hello! I'm Randy, a passionate DevOps Engineer with a strong Site Reliability Engineering (SRE) and Platform Engineering mindset. I specialize in building scalable, resilient cloud infrastructure and automating deployment pipelines with a focus on observability and developer productivity.</p>
+            <p>With expertise across the full stack from infrastructure to application development, I bridge the gap between development and operations to deliver robust, high-performance systems. I'm particularly skilled at implementing cloud security best practices and optimizing CI/CD workflows.</p>
+            <p>I'm currently open to opportunities in DevOps, SRE, and Platform Engineering roles where I can leverage my skills to build and maintain world-class cloud infrastructure.</p>
         </section>
 
         <section id="qualifications">
             <h2>Education & Certifications</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">2023</div>
+                    <div class="timeline-date">2023 - Present</div>
+                    <h3 class="timeline-title">MSc Computer Science & Artificial Intelligence</h3>
+                    <p>Part-time degree with focus on:</p>
+                    <ul>
+                        <li>Programming and Algorithms</li>
+                        <li>Web Technologies</li>
+                        <li>Artificial Intelligence</li>
+                        <li>Machine Learning</li>
+                        <li>Cloud Computing</li>
+                        <li>Databases</li>
+                        <li>Big Data Analytics and Visualisation</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 2022</div>
+                    <h3 class="timeline-title">Professional Scrum Master I</h3>
+                    <p>Scrum.org</p>
+                    <a href="https://www.credly.com/badges/29194d85-b97d-4e92-ab14-1f53e780e712" target="_blank" class="certification-link">
+                        <i class="fas fa-external-link-alt"></i> View Credential
+                    </a>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021</div>
                     <h3 class="timeline-title">AWS Certified Solutions Architect</h3>
                     <p>Amazon Web Services</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2022</div>
-                    <h3 class="timeline-title">Certified Kubernetes Administrator (CKA)</h3>
-                    <p>Cloud Native Computing Foundation</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2020 - 2022</div>
-                    <h3 class="timeline-title">BSc Computer Science</h3>
-                    <p>University of Technology</p>
                 </div>
             </div>
         </section>
 
         <section id="skills">
             <h2>Technical Skills</h2>
-            <div class="skill-category">
-                <h3>Cloud Platforms</h3>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 95%;"><span class="skill-name">AWS (95%)</span></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 85%;"><span class="skill-name">Azure (85%)</span></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 80%;"><span class="skill-name">GCP (80%)</span></div>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>DevOps Tools</h3>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 90%;"><span class="skill-name">Docker (90%)</span></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 88%;"><span class="skill-name">Kubernetes (88%)</span></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 92%;"><span class="skill-name">Terraform (92%)</span></div>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Programming</h3>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 85%;"><span class="skill-name">Python (85%)</span></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 80%;"><span class="skill-name">Bash (80%)</span></div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 75%;"><span class="skill-name">Go (75%)</span></div>
-                </div>
+            <div class="skills-container">
+                <div class="skill-item">AWS CloudFormation</div>
+                <div class="skill-item">AWS Security</div>
+                <div class="skill-item">AWS Lambda</div>
+                <div class="skill-item">Amazon VPC</div>
+                <div class="skill-item">Amazon EC2</div>
+                <div class="skill-item">Amazon ECR</div>
+                <div class="skill-item">AWS IAM</div>
+                <div class="skill-item">Amazon Route 53</div>
+                <div class="skill-item">Bash</div>
+                <div class="skill-item">Amazon ECS</div>
+                <div class="skill-item">AWS X-Ray</div>
+                <div class="skill-item">Auto-shutdown policies</div>
+                <div class="skill-item">Resource cleanup</div>
+                <div class="skill-item">Amazon DynamoDB</div>
+                <div class="skill-item">Amazon S3</div>
+                <div class="skill-item">Scrum</div>
+                <div class="skill-item">Agile & Waterfall</div>
+                <div class="skill-item">Jenkins</div>
+                <div class="skill-item">GitOps</div>
+                <div class="skill-item">GitHub Actions</div>
+                <div class="skill-item">CI/CD</div>
+                <div class="skill-item">Terraform</div>
+                <div class="skill-item">Cloud Security</div>
+                <div class="skill-item">Azure Key Vault</div>
+                <div class="skill-item">Azure SQL</div>
+                <div class="skill-item">Azure blob</div>
+                <div class="skill-item">Helm</div>
+                <div class="skill-item">Kubernetes</div>
+                <div class="skill-item">SRE Mindset</div>
+                <div class="skill-item">PowerShell</div>
+                <div class="skill-item">Linux System Admin</div>
+                <div class="skill-item">Windows</div>
+                <div class="skill-item">Java</div>
+                <div class="skill-item">SAST/DAST</div>
+                <div class="skill-item">Azure Functions</div>
+                <div class="skill-item">Microsoft Entra ID</div>
+                <div class="skill-item">App Insights</div>
+                <div class="skill-item">Bitbucket</div>
+                <div class="skill-item">Artifactory</div>
+                <div class="skill-item">Jira</div>
+                <div class="skill-item">Confluence</div>
+                <div class="skill-item">SDLC</div>
+                <div class="skill-item">User Acceptance Testing</div>
+                <div class="skill-item">Test Driven Development</div>
+                <div class="skill-item">Python</div>
             </div>
         </section>
 
@@ -476,24 +498,24 @@
                 </div>
                 <p>Fintech apps handle sensitive data such as payments, user KYC, trades, etc. I built a pipeline that scans every commit for vulnerabilities, deploys infrastructure as code, and auto-rolls back if scans fail. The solution reduced deployment failures by 70% and improved security compliance.</p>
                 <div class="project-links">
-                    <a href="GitHub-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-                    <a href="live-demo" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <a href="https://github.com/buma2510?tab=repositories" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                    <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                 </div>
             </div>
             
             <div class="project">
-                <h3>Auto-Scaling Kubernetes Cluster for E-Commerce</h3>
+                <h3>High-Frequency Trading (HFT) Infrastructure Simulator</h3>
                 <div class="tech-stack">
-                    <span class="tech-item">EKS</span>
-                    <span class="tech-item">Helm</span>
+                    <span class="tech-item">Kubernetes</span>
                     <span class="tech-item">Prometheus</span>
                     <span class="tech-item">Grafana</span>
-                    <span class="tech-item">Fluentd</span>
-                    <span class="tech-item">Kustomize</span>
+                    <span class="tech-item">Python</span>
+                    <span class="tech-item">Chaos Engineering</span>
                 </div>
-                <p>Designed and implemented a production-grade Kubernetes cluster with auto-scaling capabilities that dynamically adjusts resources based on traffic patterns. The solution reduced infrastructure costs by 40% while maintaining 99.95% uptime during peak loads.</p>
+                <p>Simulated low-latency trading infrastructure with auto-scaling Kubernetes pods for order execution capable of handling 10K trades/sec. Implemented real-time monitoring with Prometheus alerts for latency spikes and conducted chaos engineering experiments by randomly killing pods to test system resilience.</p>
+                <p>Perfect demonstration of building FinTech infrastructure with bulletproof reliability and performance characteristics.</p>
                 <div class="project-links">
-                    <a href="GitHub-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                    <a href="https://github.com/buma2510?tab=repositories" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
                 </div>
             </div>
         </section>
@@ -522,49 +544,22 @@
                     <h4>Data Engineering</h4>
                 </div>
                 <div class="interest-item">
-                    <div class="interest-icon"><i class="fas fa-gamepad"></i></div>
-                    <h4>Gaming Tech</h4>
+                    <div class="interest-icon"><i class="fas fa-bolt"></i></div>
+                    <h4>High Performance Systems</h4>
                 </div>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>Connect with me on <a href="https://www.linkedin.com/in/randy-m-2b00a8255/" target="_blank">LinkedIn</a> for opportunities</p>
+        <p>Contact me at <a href="mailto:randy.bm45@gmail.com">randy.bm45@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/randy-m-2b00a8255/" target="_blank">LinkedIn</a></p>
         <p>© <script>document.write(new Date().getFullYear())</script> Randy Munang. All rights reserved.</p>
     </footer>
 
     <script>
-        // Animate skill bars on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            
-            const animateSkills = () => {
-                skillBars.forEach(bar => {
-                    const width = bar.style.width;
-                    bar.style.width = '0';
-                    setTimeout(() => {
-                        bar.style.width = width;
-                    }, 100);
-                });
-            };
-            
-            // Trigger animation when skills section is in view
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateSkills();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            observer.observe(document.getElementById('skills'));
-            
-            // Add floating animation to profile pic
-            const profilePic = document.querySelector('.profile-pic');
-            profilePic.classList.add('floating');
-        });
+        // Floating animation for profile pic
+        const profilePic = document.querySelector('.profile-pic');
+        profilePic.classList.add('floating');
     </script>
 </body>
 </html>
