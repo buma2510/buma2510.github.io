@@ -3,101 +3,568 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - DevOps Portfolio</title>
+    <title>Randy Munang - DevOps Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --success: #4cc9f0;
         }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
         header {
             text-align: center;
-            margin-bottom: 30px;
+            padding: 2rem 0;
+            position: relative;
+            z-index: 1;
         }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
         h1 {
-            color: #2c3e50;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
         }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--dark);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            position: relative;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+        
+        /* About Me Section */
+        #about p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        /* Qualifications Section */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--primary);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .timeline-title {
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        /* Skills Section */
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+        
+        .skill-category h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .skill-bar {
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--success));
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .skill-name {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Projects Section */
         .project {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+            transition: all 0.3s ease;
         }
-        .skills {
+        
+        .project:hover {
+            border-left-color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .project h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-stack {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
+            gap: 1rem;
+            margin: 1rem 0;
         }
-        .skill {
-            background: #f0f0f0;
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-size: 0.9em;
+        
+        .tech-item {
+            background: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--dark);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
+        
+        .tech-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .project-links a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .project-links a:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Interests Section */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .interest-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .interest-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .interest-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Footer */
         footer {
             text-align: center;
-            margin-top: 40px;
-            color: #777;
+            padding: 2rem 0;
+            color: white;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .interests-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Randy Munang</h1>
-        <p>DevOps Engineer | Cloud Specialist | Automation Expert</p>
-    </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>A brief introduction about your DevOps journey, skills, and what you're passionate about.</p>
-    </section>
-
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <div class="skills">
-            <span class="skill">AWS/GCP/Azure</span>
-            <span class="skill">Docker</span>
-            <span class="skill">Kubernetes</span>
-            <span class="skill">Terraform</span>
-            <span class="skill">CI/CD Pipelines</span>
-            <span class="skill">Python/Bash</span>
-            <span class="skill">Linux Administration</span>
-            <span class="skill">Monitoring</span>
-            <!-- Add more skills -->
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        
-        <div class="project">
-            <h3>Project Title 1: Secure CI/CD Pipeline a for Fintech</h3>
-            <div class="tech-stack">
-                <p><strong>Infra:</strong> AWS, EC2, VPC, ECS</p>
-                <p><strong>Tools:</strong> Terraform, GitHub Actions, Docker</p>
-                <p><strong>Security:</strong> Trivy, SonarQube, AWS Sectrets Manager</p>
+    <div class="container">
+        <header>
+            <img src="https://via.placeholder.com/150" alt="Randy Munang" class="profile-pic floating">
+            <h1>Randy Munang</h1>
+            <p>DevOps Engineer | Cloud Specialist | Automation Expert</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/randy-m-2b00a8255/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
             </div>
-            <p>Fintech apps handle sensitive data such as payments, user KYC, trades, etc so I have built a pipeline that scans every commit for Vulnerabilities, deploys infrastructure as code and Auto-rolls back if scans fail.</p>
-            <p><a href="GitHub-link" target="_blank">View on GitHub</a> | <a href="live-demo" target="_blank">Live Demo</a></p>
-        </div>
-        
-        <div class="project">
-            <h3>Project Title 2</h3>
-            <p><strong>Technologies:</strong> List of technologies used</p>
-            <p>Description of the project and what problems it solves.</p>
-            <p><a href="GitHub-link" target="_blank">View on GitHub</a></p>
-        </div>
-        
-        <!-- Add more projects -->
-    </section>
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm Randy, a passionate DevOps engineer with expertise in building scalable, secure cloud infrastructure and automating deployment pipelines. I specialize in creating CI/CD workflows that enhance developer productivity while maintaining security and compliance standards.</p>
+            <p>With a background in both development and operations, I bridge the gap between these worlds to deliver robust, high-performance systems. My approach combines technical excellence with a focus on business outcomes.</p>
+        </section>
+
+        <section id="qualifications">
+            <h2>Education & Certifications</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <h3 class="timeline-title">AWS Certified Solutions Architect</h3>
+                    <p>Amazon Web Services</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022</div>
+                    <h3 class="timeline-title">Certified Kubernetes Administrator (CKA)</h3>
+                    <p>Cloud Native Computing Foundation</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 - 2022</div>
+                    <h3 class="timeline-title">BSc Computer Science</h3>
+                    <p>University of Technology</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skill-category">
+                <h3>Cloud Platforms</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 95%;"><span class="skill-name">AWS (95%)</span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%;"><span class="skill-name">Azure (85%)</span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%;"><span class="skill-name">GCP (80%)</span></div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>DevOps Tools</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%;"><span class="skill-name">Docker (90%)</span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 88%;"><span class="skill-name">Kubernetes (88%)</span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 92%;"><span class="skill-name">Terraform (92%)</span></div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Programming</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%;"><span class="skill-name">Python (85%)</span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%;"><span class="skill-name">Bash (80%)</span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 75%;"><span class="skill-name">Go (75%)</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project">
+                <h3>Secure CI/CD Pipeline for Fintech</h3>
+                <div class="tech-stack">
+                    <span class="tech-item">AWS</span>
+                    <span class="tech-item">EC2</span>
+                    <span class="tech-item">VPC</span>
+                    <span class="tech-item">ECS</span>
+                    <span class="tech-item">Terraform</span>
+                    <span class="tech-item">GitHub Actions</span>
+                    <span class="tech-item">Docker</span>
+                    <span class="tech-item">Trivy</span>
+                    <span class="tech-item">SonarQube</span>
+                    <span class="tech-item">AWS Secrets Manager</span>
+                </div>
+                <p>Fintech apps handle sensitive data such as payments, user KYC, trades, etc. I built a pipeline that scans every commit for vulnerabilities, deploys infrastructure as code, and auto-rolls back if scans fail. The solution reduced deployment failures by 70% and improved security compliance.</p>
+                <div class="project-links">
+                    <a href="GitHub-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                    <a href="live-demo" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+            </div>
+            
+            <div class="project">
+                <h3>Auto-Scaling Kubernetes Cluster for E-Commerce</h3>
+                <div class="tech-stack">
+                    <span class="tech-item">EKS</span>
+                    <span class="tech-item">Helm</span>
+                    <span class="tech-item">Prometheus</span>
+                    <span class="tech-item">Grafana</span>
+                    <span class="tech-item">Fluentd</span>
+                    <span class="tech-item">Kustomize</span>
+                </div>
+                <p>Designed and implemented a production-grade Kubernetes cluster with auto-scaling capabilities that dynamically adjusts resources based on traffic patterns. The solution reduced infrastructure costs by 40% while maintaining 99.95% uptime during peak loads.</p>
+                <div class="project-links">
+                    <a href="GitHub-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="interests">
+            <h2>Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-robot"></i></div>
+                    <h4>AI/ML Ops</h4>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Cloud Security</h4>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-server"></i></div>
+                    <h4>Edge Computing</h4>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-code"></i></div>
+                    <h4>Open Source</h4>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Data Engineering</h4>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-gamepad"></i></div>
+                    <h4>Gaming Tech</h4>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer>
-        <p>Connect with me on <a href="https://www.linkedin.com/in/randy-m-2b00a8255/" target="_blank">LinkedIn</a></p>
-        <p>© 2023 Randy Munang</p>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/randy-m-2b00a8255/" target="_blank">LinkedIn</a> for opportunities</p>
+        <p>© <script>document.write(new Date().getFullYear())</script> Randy Munang. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Animate skill bars on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            const animateSkills = () => {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            };
+            
+            // Trigger animation when skills section is in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkills();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(document.getElementById('skills'));
+            
+            // Add floating animation to profile pic
+            const profilePic = document.querySelector('.profile-pic');
+            profilePic.classList.add('floating');
+        });
+    </script>
 </body>
 </html>
