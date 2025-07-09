@@ -7,5 +7,5 @@ jobs:
       - uses: actions/checkout@v3
       - name: Verify DNS
         run: |
-          dig yourdomain.com +short
-          dig www.yourdomain.com +short
+          dig rand90mpp.live +short
+          dig www.rand90mpp.live +short
