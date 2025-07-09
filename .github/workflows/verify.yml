@@ -1,0 +1,11 @@
+name: Verify DNS
+on: [push]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Verify DNS
+        run: |
+          dig yourdomain.com +short
+          dig www.yourdomain.com +short
